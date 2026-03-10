@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        terraflow: {
+          cream: "#F5F1E8",
+          dark: "#5A6B4A",
+          green: "#7A9856",
+          lightgreen: "#A8C766",
+          orange: "#D97E3A",
+          brown: "#8B6F47",
+          tan: "#C9B89B",
+          lighttan: "#E8DCC8",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
