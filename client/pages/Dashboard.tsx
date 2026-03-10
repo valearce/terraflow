@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { BackgroundBirds } from "@/components/BackgroundBirds";
 import { Cloud, Sun, Wind, Droplets } from "lucide-react";
 
 export default function Dashboard() {
@@ -46,7 +47,9 @@ export default function Dashboard() {
     <div className="min-h-screen bg-terraflow-cream">
       <Header />
 
-      <main className="max-w-7xl mx-auto px-4 py-12">
+      <div className="relative">
+        <BackgroundBirds />
+        <main className="max-w-7xl mx-auto px-4 py-12 relative z-10">
         {/* Page Title with decorative line */}
         <div className="mb-12 flex items-center gap-4">
           <div>
@@ -136,7 +139,8 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
