@@ -19,19 +19,19 @@ export function Header() {
               to="/"
               className="hover:text-terraflow-lightgreen transition-colors"
             >
-              Dashboard
+              Panel de Control
             </Link>
             <Link
               to="/analytics"
               className="hover:text-terraflow-lightgreen transition-colors"
             >
-              Analytics
+              Análisis
             </Link>
             <Link
               to="/database"
               className="hover:text-terraflow-lightgreen transition-colors"
             >
-              Database
+              Base de Datos
             </Link>
           </nav>
 
@@ -59,21 +59,21 @@ export function Header() {
               className="block hover:text-terraflow-lightgreen transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Dashboard
+              Panel de Control
             </Link>
             <Link
               to="/analytics"
               className="block hover:text-terraflow-lightgreen transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Analytics
+              Análisis
             </Link>
             <Link
               to="/database"
               className="block hover:text-terraflow-lightgreen transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Database
+              Base de Datos
             </Link>
           </nav>
         )}

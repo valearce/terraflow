@@ -7,64 +7,64 @@ const databaseRecords = [
     timestamp: "2026-03-10 08:00",
     humidity: "72%",
     temperature: "24°C",
-    sun: "High",
-    quality: "Good",
+    sun: "Alto",
+    quality: "Buena",
   },
   {
     id: 2,
     timestamp: "2026-03-10 09:00",
     humidity: "68%",
     temperature: "25°C",
-    sun: "High",
-    quality: "Good",
+    sun: "Alto",
+    quality: "Buena",
   },
   {
     id: 3,
     timestamp: "2026-03-10 10:00",
     humidity: "65%",
     temperature: "26°C",
-    sun: "Very High",
-    quality: "Good",
+    sun: "Muy Alto",
+    quality: "Buena",
   },
   {
     id: 4,
     timestamp: "2026-03-10 11:00",
     humidity: "62%",
     temperature: "27°C",
-    sun: "Very High",
-    quality: "Good",
+    sun: "Muy Alto",
+    quality: "Buena",
   },
   {
     id: 5,
     timestamp: "2026-03-10 12:00",
     humidity: "58%",
     temperature: "28°C",
-    sun: "Extreme",
-    quality: "Fair",
+    sun: "Extremo",
+    quality: "Regular",
   },
   {
     id: 6,
     timestamp: "2026-03-10 13:00",
     humidity: "61%",
     temperature: "27°C",
-    sun: "Very High",
-    quality: "Good",
+    sun: "Muy Alto",
+    quality: "Buena",
   },
   {
     id: 7,
     timestamp: "2026-03-10 14:00",
     humidity: "64%",
     temperature: "26°C",
-    sun: "High",
-    quality: "Good",
+    sun: "Alto",
+    quality: "Buena",
   },
   {
     id: 8,
     timestamp: "2026-03-10 15:00",
     humidity: "68%",
     temperature: "25°C",
-    sun: "Medium",
-    quality: "Good",
+    sun: "Medio",
+    quality: "Buena",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function Database() {
               <thead>
                 <tr className="border-b-2 border-terraflow-dark border-opacity-20">
                   <th className="bg-terraflow-green text-white px-6 py-4 text-left font-semibold text-sm">
-                    Timestamp
+                    Fecha y Hora
                   </th>
                   <th className="bg-terraflow-lighttan text-terraflow-dark px-6 py-4 text-left font-semibold text-sm">
                     Humedad
@@ -101,10 +101,10 @@ export default function Database() {
                     Temperatura
                   </th>
                   <th className="bg-terraflow-orange text-white px-6 py-4 text-left font-semibold text-sm">
-                    Sol
+                    Luz Solar
                   </th>
                   <th className="bg-terraflow-brown text-white px-6 py-4 text-left font-semibold text-sm">
-                    Calidad Aire
+                    Calidad del Aire
                   </th>
                 </tr>
               </thead>
@@ -131,7 +131,7 @@ export default function Database() {
                     <td className="px-6 py-4 text-sm text-terraflow-dark">
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          record.quality === "Good"
+                          record.quality === "Buena"
                             ? "bg-terraflow-green text-white"
                             : "bg-terraflow-orange text-white"
                         }`}
@@ -150,7 +150,7 @@ export default function Database() {
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
-              Total Records
+              Total de Registros
             </p>
             <p className="text-2xl font-bold text-terraflow-green">
               {databaseRecords.length}
@@ -158,19 +158,19 @@ export default function Database() {
           </div>
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
-              Avg Humidity
+              Humedad Promedio
             </p>
             <p className="text-2xl font-bold text-terraflow-tan">65%</p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
-              Avg Temperature
+              Temperatura Promedio
             </p>
             <p className="text-2xl font-bold text-terraflow-orange">26°C</p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
-              Good Records
+              Registros Buenos
             </p>
             <p className="text-2xl font-bold text-terraflow-green">7/8</p>
           </div>

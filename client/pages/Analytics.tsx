@@ -14,20 +14,20 @@ import {
 } from "recharts";
 
 const barData = [
-  { name: "Mon", value: 65 },
-  { name: "Tue", value: 72 },
-  { name: "Wed", value: 85 },
-  { name: "Thu", value: 78 },
-  { name: "Fri", value: 88 },
-  { name: "Sat", value: 92 },
-  { name: "Sun", value: 80 },
+  { name: "Lun", value: 65 },
+  { name: "Mar", value: 72 },
+  { name: "Mié", value: 85 },
+  { name: "Jue", value: 78 },
+  { name: "Vie", value: 88 },
+  { name: "Sáb", value: 92 },
+  { name: "Dom", value: 80 },
 ];
 
 const pieData = [
-  { name: "Optimal", value: 45 },
-  { name: "Good", value: 30 },
-  { name: "Fair", value: 20 },
-  { name: "Alert", value: 5 },
+  { name: "Óptimo", value: 45 },
+  { name: "Bueno", value: 30 },
+  { name: "Regular", value: 20 },
+  { name: "Alerta", value: 5 },
 ];
 
 const COLORS = [
@@ -55,8 +55,7 @@ export default function Analytics() {
 
         {/* Subtitle */}
         <p className="text-terraflow-dark text-opacity-70 text-lg mb-12 flex items-center gap-2">
-          <span className="text-2xl">↑</span> Cómo se comportan los datos en
-          conjunto
+          <span className="text-2xl">↑</span> Cómo se comportan los datos en conjunto
         </p>
 
         {/* Charts Grid */}
@@ -64,7 +63,7 @@ export default function Analytics() {
           {/* Bar Chart */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-xl font-bold text-terraflow-dark mb-6">
-              Gráfica 1
+              Gráfica 1: Tendencias Semanales
             </h2>
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={barData}>
@@ -89,7 +88,7 @@ export default function Analytics() {
           {/* Pie Chart */}
           <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
             <h2 className="text-xl font-bold text-terraflow-dark mb-6 w-full">
-              Gráfica 2
+              Gráfica 2: Distribución de Estados
             </h2>
             <ResponsiveContainer width="100%" height={400}>
               <PieChart>
@@ -124,10 +123,10 @@ export default function Analytics() {
         {/* Summary Section */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
-            { label: "Optimal", value: "45%", color: "bg-terraflow-green" },
-            { label: "Good", value: "30%", color: "bg-terraflow-lightgreen" },
-            { label: "Fair", value: "20%", color: "bg-terraflow-orange" },
-            { label: "Alert", value: "5%", color: "bg-terraflow-brown" },
+            { label: "Óptimo", value: "45%", color: "bg-terraflow-green" },
+            { label: "Bueno", value: "30%", color: "bg-terraflow-lightgreen" },
+            { label: "Regular", value: "20%", color: "bg-terraflow-orange" },
+            { label: "Alerta", value: "5%", color: "bg-terraflow-brown" },
           ].map((item) => (
             <div
               key={item.label}

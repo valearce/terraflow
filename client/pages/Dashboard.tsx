@@ -9,7 +9,7 @@ export default function Dashboard() {
       id: 1,
       label: "Humedad y Temperatura Aire",
       value: "72%",
-      subtitle: "Air Humidity & Temperature",
+      subtitle: "Humedad y Temperatura",
       icon: Cloud,
       color: "bg-terraflow-green",
       textColor: "text-white",
@@ -17,8 +17,8 @@ export default function Dashboard() {
     {
       id: 2,
       label: "Sol",
-      value: "High",
-      subtitle: "Sunlight",
+      value: "Alto",
+      subtitle: "Luz Solar",
       icon: Sun,
       color: "bg-yellow-500",
       textColor: "text-white",
@@ -26,8 +26,8 @@ export default function Dashboard() {
     {
       id: 3,
       label: "Calidad Aire",
-      value: "Good",
-      subtitle: "Air Quality",
+      value: "Buena",
+      subtitle: "Calidad del Aire",
       icon: Wind,
       color: "bg-terraflow-lightgreen",
       textColor: "text-white",
@@ -36,7 +36,7 @@ export default function Dashboard() {
       id: 4,
       label: "Humedad Tierra",
       value: "65%",
-      subtitle: "Soil Humidity",
+      subtitle: "Humedad del Suelo",
       icon: Droplets,
       color: "bg-terraflow-orange",
       textColor: "text-white",
@@ -62,7 +62,7 @@ export default function Dashboard() {
 
         {/* Subtitle */}
         <p className="text-terraflow-dark text-opacity-70 mb-12 text-lg">
-          Monitoreo en tiempo real de tus sensores agrícolas
+          Monitorea tus sensores agrícolas en tiempo real
         </p>
 
         {/* Main Content Grid */}
@@ -101,10 +101,10 @@ export default function Dashboard() {
               </h2>
               <div className="bg-terraflow-lighttan rounded-lg p-5 border-l-4 border-terraflow-orange">
                 <p className="text-terraflow-dark font-semibold text-sm mb-3">
-                  Recomendación que genera el modelo de IA
+                  Recomendación del modelo de IA
                 </p>
                 <p className="text-sm text-terraflow-dark opacity-75 leading-relaxed">
-                  Optimizar el riego considerando la humedad actual del suelo y
+                  Optimiza el riego considerando la humedad actual del suelo y
                   las predicciones de temperatura para maximizar la eficiencia
                   agrícola.
                 </p>
@@ -120,19 +120,19 @@ export default function Dashboard() {
                 <li className="flex items-start gap-3 pb-3 border-b border-terraflow-dark border-opacity-10">
                   <span className="text-terraflow-green font-bold mt-1">✓</span>
                   <span className="text-terraflow-dark">
-                    La humedad del aire está en niveles óptimos
+                    Humedad del aire en niveles óptimos
                   </span>
                 </li>
                 <li className="flex items-start gap-3 pb-3 border-b border-terraflow-dark border-opacity-10">
                   <span className="text-terraflow-orange font-bold mt-1">!</span>
                   <span className="text-terraflow-dark">
-                    La humedad del suelo requiere monitoreo continuo
+                    Humedad del suelo requiere monitoreo
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-terraflow-green font-bold mt-1">✓</span>
                   <span className="text-terraflow-dark">
-                    La calidad del aire es buena
+                    Calidad del aire es buena
                   </span>
                 </li>
               </ul>

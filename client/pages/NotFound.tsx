@@ -20,17 +20,16 @@ const NotFound = () => {
         <div className="text-center px-4">
           <h1 className="text-7xl font-bold text-terraflow-orange mb-4">404</h1>
           <p className="text-2xl text-terraflow-dark mb-2 font-semibold">
-            Page not found
+            Página no encontrada
           </p>
           <p className="text-terraflow-dark text-opacity-70 mb-8 max-w-md">
-            The page you're looking for doesn't exist. Please navigate back to
-            the dashboard.
+            La página que buscas no existe. Por favor, regresa al panel de control.
           </p>
           <Link
             to="/"
             className="inline-block bg-terraflow-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
           >
-            Return to Dashboard
+            Volver al Panel de Control
           </Link>
         </div>
       </div>
