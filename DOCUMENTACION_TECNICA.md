@@ -234,8 +234,7 @@ Cuando hace click en un link:
 Funcionalidad:
 ├── Muestra 4 tarjetas de sensores (Humedad, Sol, Calidad, Suelo)
 ├── Panel de recomendación (genera texto automático según datos)
-├── Lista de "Datos en tiempo real" con indicadores
-└── Pájaros decorativos en el fondo
+└── Lista de "Datos en tiempo real" con indicadores
 
 Datos que procesa:
 ├── Calcula promedio de cada sensor
@@ -294,13 +293,12 @@ Procesamiento:
 
 ```typescript
 Funcionalidad:
-├── Dibuja 5 pájaros usando SVG
-├── Posicionados en diferentes lugares
+
 ├── Animaciones: bounce, pulse, fade
 └── No son interactivos (pointer-events-none)
 
 SVG (Scalable Vector Graphics):
-├── Es como dibujar con código
+
 ├── Define formas: círculos, elipses, líneas
 ├── Resultados: imágenes que se escalan sin pixelarse
 ```
