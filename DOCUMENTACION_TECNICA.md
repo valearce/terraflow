@@ -533,15 +533,3 @@ Si tienes más datos del Centinela:
 
 ---
 
-## RESUMEN FINAL
-
-**Terraflow es:**
-- Una aplicación React que muestra datos del Centinela
-- Tiene 3 páginas: Dashboard, Análisis, Base de Datos
-- Los datos vienen de un archivo JSON local
-- Los estilos usan TailwindCSS
-- Todo se ejecuta en el navegador (sin servidor activo)
-- Es rápido, responsivo y fácil de mantener
-- Puede conectarse a una base de datos cuando quieras
-
-¡Espero que esto te haya aclarado cómo funciona todo! 🎉
