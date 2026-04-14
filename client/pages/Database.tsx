@@ -1,74 +1,61 @@
 import { Header } from "@/components/Header";
-
-// Mock database records
-const databaseRecords = [
-  {
-    id: 1,
-    timestamp: "2026-03-10 08:00",
-    humidity: "72%",
-    temperature: "24°C",
-    sun: "Alto",
-    quality: "Buena",
-  },
-  {
-    id: 2,
-    timestamp: "2026-03-10 09:00",
-    humidity: "68%",
-    temperature: "25°C",
-    sun: "Alto",
-    quality: "Buena",
-  },
-  {
-    id: 3,
-    timestamp: "2026-03-10 10:00",
-    humidity: "65%",
-    temperature: "26°C",
-    sun: "Muy Alto",
-    quality: "Buena",
-  },
-  {
-    id: 4,
-    timestamp: "2026-03-10 11:00",
-    humidity: "62%",
-    temperature: "27°C",
-    sun: "Muy Alto",
-    quality: "Buena",
-  },
-  {
-    id: 5,
-    timestamp: "2026-03-10 12:00",
-    humidity: "58%",
-    temperature: "28°C",
-    sun: "Extremo",
-    quality: "Regular",
-  },
-  {
-    id: 6,
-    timestamp: "2026-03-10 13:00",
-    humidity: "61%",
-    temperature: "27°C",
-    sun: "Muy Alto",
-    quality: "Buena",
-  },
-  {
-    id: 7,
-    timestamp: "2026-03-10 14:00",
-    humidity: "64%",
-    temperature: "26°C",
-    sun: "Alto",
-    quality: "Buena",
-  },
-  {
-    id: 8,
-    timestamp: "2026-03-10 15:00",
-    humidity: "68%",
-    temperature: "25°C",
-    sun: "Medio",
-    quality: "Buena",
-  },
-];
+import centinelaData from "@/data/centinela-data.json";
+import { useMemo } from "react";
 
 export default function Database() {
+  // Procesar datos para la tabla
+  const databaseRecords = useMemo(() => {
+    const getLuzLevel = (lux: number) => {
+      if (lux < 50) return "Bajo";
+      if (lux < 500) return "Medio";
+      return "Alto";
+    };
+
+    const getCalidadAire = (gases: number) => {
+      if (gases < 60) return "Buena";
+      if (gases < 100) return "Regular";
+      return "Alerta";
+    };
+
+    return centinelaData.map((record, index) => ({
+      id: index + 1,
+      timestamp: record.Fecha_Hora,
+      humidity: `${record.Humedad_Aire_Pct.toFixed(1)}%`,
+      temperature: `${record.Temperatura_C.toFixed(1)}°C`,
+      sun: getLuzLevel(record.Luz_Lux),
+      quality: getCalidadAire(record.Gases_MQ135),
+      soilHumidity: `${record.Humedad_Suelo_Pct}%`,
+    }));
+  }, []);
+
+  // Calcular estadísticas
+  const stats = useMemo(() => {
+    if (!centinelaData || centinelaData.length === 0) {
+      return { totalRecords: 0, avgHumidity: 0, avgTemp: 0, goodRecords: 0 };
+    }
+
+    const avgHumidity =
+      (
+        centinelaData.reduce((sum, d) => sum + d.Humedad_Aire_Pct, 0) /
+        centinelaData.length
+      ).toFixed(1);
+    const avgTemp =
+      (
+        centinelaData.reduce((sum, d) => sum + d.Temperatura_C, 0) /
+        centinelaData.length
+      ).toFixed(1);
+    const goodRecords = centinelaData.filter(
+      (d) => d.Gases_MQ135 < 80
+    ).length;
+
+    return {
+      totalRecords: centinelaData.length,
+      avgHumidity,
+      avgTemp,
+      goodRecords,
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-terraflow-cream">
       <Header />
@@ -95,7 +82,7 @@ export default function Database() {
                     Fecha y Hora
                   </th>
                   <th className="bg-terraflow-lighttan text-terraflow-dark px-6 py-4 text-left font-semibold text-sm">
-                    Humedad
+                    Humedad Aire
                   </th>
                   <th className="bg-terraflow-lightgreen text-white px-6 py-4 text-left font-semibold text-sm">
                     Temperatura
@@ -104,7 +91,7 @@ export default function Database() {
                     Luz Solar
                   </th>
                   <th className="bg-terraflow-brown text-white px-6 py-4 text-left font-semibold text-sm">
-                    Calidad del Aire
+                    Humedad Suelo
                   </th>
                 </tr>
               </thead>
@@ -136,7 +123,7 @@ export default function Database() {
                             : "bg-terraflow-orange text-white"
                         }`}
                       >
-                        {record.quality}
+                        {record.soilHumidity}
                       </span>
                     </td>
                   </tr>
@@ -153,26 +140,32 @@ export default function Database() {
               Total de Registros
             </p>
             <p className="text-2xl font-bold text-terraflow-green">
-              {databaseRecords.length}
+              {stats.totalRecords}
             </p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
               Humedad Promedio
             </p>
-            <p className="text-2xl font-bold text-terraflow-tan">65%</p>
+            <p className="text-2xl font-bold text-terraflow-tan">
+              {stats.avgHumidity}%
+            </p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
               Temperatura Promedio
             </p>
-            <p className="text-2xl font-bold text-terraflow-orange">26°C</p>
+            <p className="text-2xl font-bold text-terraflow-orange">
+              {stats.avgTemp}°C
+            </p>
           </div>
           <div className="bg-white rounded-lg p-4 shadow">
             <p className="text-xs text-terraflow-dark text-opacity-70 mb-1">
               Registros Buenos
             </p>
-            <p className="text-2xl font-bold text-terraflow-green">7/8</p>
+            <p className="text-2xl font-bold text-terraflow-green">
+              {stats.goodRecords}/{stats.totalRecords}
+            </p>
           </div>
         </div>
       </main>

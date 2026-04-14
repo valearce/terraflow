@@ -1,4 +1,6 @@
 import { Header } from "@/components/Header";
+import { useMemo } from "react";
+import centinelaData from "@/data/centinela-data.json";
 import {
   BarChart,
   Bar,
@@ -11,24 +13,46 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  LineChart,
+  Line,
 } from "recharts";
 
-const barData = [
-  { name: "Lun", value: 65 },
-  { name: "Mar", value: 72 },
-  { name: "Mié", value: 85 },
-  { name: "Jue", value: 78 },
-  { name: "Vie", value: 88 },
-  { name: "Sáb", value: 92 },
-  { name: "Dom", value: 80 },
-];
+// Procesar datos para gráficos
+const getChartData = () => {
+  // Agrupar datos por cada 5 registros para la gráfica de barras
+  const barData = [];
+  for (let i = 0; i < centinelaData.length; i += 5) {
+    barData.push({
+      name: `${i + 1}`,
+      temperatura: parseFloat(centinelaData[i].Temperatura_C.toFixed(1)),
+      humedad: parseFloat(centinelaData[i].Humedad_Aire_Pct.toFixed(1)),
+    });
+  }
 
-const pieData = [
-  { name: "Óptimo", value: 45 },
-  { name: "Bueno", value: 30 },
-  { name: "Regular", value: 20 },
-  { name: "Alerta", value: 5 },
-];
+  // Categorizar datos por calidad del aire
+  const pieData = [
+    {
+      name: "Óptimo",
+      value: centinelaData.filter((d) => d.Gases_MQ135 < 50).length,
+    },
+    {
+      name: "Bueno",
+      value: centinelaData.filter((d) => d.Gases_MQ135 >= 50 && d.Gases_MQ135 < 80).length,
+    },
+    {
+      name: "Regular",
+      value: centinelaData.filter((d) => d.Gases_MQ135 >= 80 && d.Gases_MQ135 < 120).length,
+    },
+    {
+      name: "Alerta",
+      value: centinelaData.filter((d) => d.Gases_MQ135 >= 120).length,
+    },
+  ];
+
+  return { barData, pieData };
+};
+
+const { barData, pieData } = getChartData();
 
 const COLORS = [
   "#7A9856", // green
@@ -122,20 +146,28 @@ export default function Analytics() {
 
         {/* Summary Section */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4">
-          {[
-            { label: "Óptimo", value: "45%", color: "bg-terraflow-green" },
-            { label: "Bueno", value: "30%", color: "bg-terraflow-lightgreen" },
-            { label: "Regular", value: "20%", color: "bg-terraflow-orange" },
-            { label: "Alerta", value: "5%", color: "bg-terraflow-brown" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className={`${item.color} rounded-lg p-4 text-white text-center shadow`}
-            >
-              <p className="text-sm font-semibold opacity-90">{item.label}</p>
-              <p className="text-2xl font-bold">{item.value}</p>
-            </div>
-          ))}
+          {pieData.map((item) => {
+            const percentage = (
+              (item.value / centinelaData.length) *
+              100
+            ).toFixed(0);
+            const colorMap: Record<string, string> = {
+              Óptimo: "bg-terraflow-green",
+              Bueno: "bg-terraflow-lightgreen",
+              Regular: "bg-terraflow-orange",
+              Alerta: "bg-terraflow-brown",
+            };
+            return (
+              <div
+                key={item.name}
+                className={`${colorMap[item.name]} rounded-lg p-4 text-white text-center shadow`}
+              >
+                <p className="text-sm font-semibold opacity-90">{item.name}</p>
+                <p className="text-2xl font-bold">{percentage}%</p>
+                <p className="text-xs opacity-75 mt-1">({item.value} registros)</p>
+              </div>
+            );
+          })}
         </div>
       </main>
     </div>

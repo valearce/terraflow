@@ -1,0 +1,22 @@
+[
+  {"Fecha_Hora": "2026-03-07 22:19:43", "Temperatura_C": 24.9, "Humedad_Aire_Pct": 61.09, "Luz_Lux": 28.85, "Gases_MQ135": 52.4, "Humedad_Suelo_Pct": 73},
+  {"Fecha_Hora": "2026-03-07 22:22:13", "Temperatura_C": 24.91, "Humedad_Aire_Pct": 58.06, "Luz_Lux": 52.07, "Gases_MQ135": 51.93, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:22:43", "Temperatura_C": 24.82, "Humedad_Aire_Pct": 57.84, "Luz_Lux": 52.04, "Gases_MQ135": 51.27, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:23:13", "Temperatura_C": 24.81, "Humedad_Aire_Pct": 57.72, "Luz_Lux": 52.04, "Gases_MQ135": 51.13, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:23:43", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.7, "Luz_Lux": 51.86, "Gases_MQ135": 51.73, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:24:13", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.69, "Luz_Lux": 51.7, "Gases_MQ135": 51.8, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:24:43", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.7, "Luz_Lux": 51.82, "Gases_MQ135": 51.0, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:25:13", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.7, "Luz_Lux": 51.64, "Gases_MQ135": 51.07, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:25:44", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.78, "Luz_Lux": 51.89, "Gases_MQ135": 50.8, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:26:14", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.64, "Luz_Lux": 51.76, "Gases_MQ135": 50.93, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:26:44", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.54, "Luz_Lux": 51.79, "Gases_MQ135": 50.67, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:27:14", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.5, "Luz_Lux": 51.76, "Gases_MQ135": 50.6, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:27:44", "Temperatura_C": 24.61, "Humedad_Aire_Pct": 57.53, "Luz_Lux": 51.73, "Gases_MQ135": 50.87, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:28:14", "Temperatura_C": 24.61, "Humedad_Aire_Pct": 57.6, "Luz_Lux": 51.67, "Gases_MQ135": 50.67, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:28:44", "Temperatura_C": 24.61, "Humedad_Aire_Pct": 57.6, "Luz_Lux": 51.67, "Gases_MQ135": 50.67, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:29:14", "Temperatura_C": 24.61, "Humedad_Aire_Pct": 57.6, "Luz_Lux": 51.55, "Gases_MQ135": 50.67, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:29:45", "Temperatura_C": 24.61, "Humedad_Aire_Pct": 57.6, "Luz_Lux": 51.64, "Gases_MQ135": 50.13, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:30:15", "Temperatura_C": 24.61, "Humedad_Aire_Pct": 57.55, "Luz_Lux": 51.7, "Gases_MQ135": 50.13, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:30:45", "Temperatura_C": 24.66, "Humedad_Aire_Pct": 57.48, "Luz_Lux": 51.7, "Gases_MQ135": 50.2, "Humedad_Suelo_Pct": 74},
+  {"Fecha_Hora": "2026-03-07 22:31:15", "Temperatura_C": 24.71, "Humedad_Aire_Pct": 57.4, "Luz_Lux": 51.64, "Gases_MQ135": 49.93, "Humedad_Suelo_Pct": 74}
+]
