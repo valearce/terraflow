@@ -126,9 +126,9 @@ export default function Dashboard() {
         </p>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Sensor Cards Column */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="space-y-6">
             {sensorData.map((sensor) => {
               const Icon = sensor.icon;
               return (
@@ -153,15 +153,18 @@ export default function Dashboard() {
             })}
           </div>
 
-          {/* Recommendation Card */}
-          <div className="lg:col-span-1">
+          {/* Recommendations & AI Modes */}
+          <div className="space-y-6">
+            {/* Main Recommendation Card */}
             <div className="border-4 border-terraflow-orange rounded-xl p-6 bg-white shadow-lg hover:shadow-xl transition-shadow">
               <h2 className="text-2xl font-bold text-terraflow-orange mb-6">
-                Recomendación
+                Análisis y Recomendaciones de IA
               </h2>
-              <div className="bg-terraflow-lighttan rounded-lg p-5 border-l-4 border-terraflow-orange">
-                <p className="text-terraflow-dark font-semibold text-sm mb-3">
-                  Recomendación del modelo de IA
+
+              {/* Resumen Rápido */}
+              <div className="bg-terraflow-lighttan rounded-lg p-5 border-l-4 border-terraflow-orange mb-6">
+                <p className="text-terraflow-dark font-semibold text-sm mb-2">
+                  Recomendación Rápida
                 </p>
                 <p className="text-sm text-terraflow-dark opacity-75 leading-relaxed">
                   {stats.lastHumedadSuelo > 75
@@ -171,10 +174,86 @@ export default function Dashboard() {
                       : "Aumenta el riego: humedad del suelo baja."}
                 </p>
               </div>
+
+              {/* Modo 1: Diagnóstico Forense */}
+              <div className="mb-6 pb-6 border-b border-terraflow-dark border-opacity-20">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-2 h-2 bg-terraflow-green rounded-full"></div>
+                  <h3 className="text-lg font-bold text-terraflow-dark">
+                    Modo 1: Diagnóstico Forense (Chequeo)
+                  </h3>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-4 text-sm text-terraflow-dark space-y-3">
+                  <p>
+                    <span className="font-semibold">Informe de Salud:</span> Contrasta el microclima interior con el clima exterior de la sabana de Bogotá.
+                  </p>
+                  <div className="grid grid-cols-2 gap-3 text-xs">
+                    <div className="bg-white p-3 rounded border-l-2 border-terraflow-green">
+                      <p className="font-semibold text-terraflow-green">Absorción Hídrica</p>
+                      <p className="opacity-75">Normal</p>
+                    </div>
+                    <div className="bg-white p-3 rounded border-l-2 border-terraflow-orange">
+                      <p className="font-semibold text-terraflow-orange">Estrés Térmico-Lumínico</p>
+                      <p className="opacity-75">{parseFloat(stats.avgTemp as any) > 26 ? "Moderado" : "Bajo"}</p>
+                    </div>
+                    <div className="bg-white p-3 rounded border-l-2 border-terraflow-green col-span-2">
+                      <p className="font-semibold text-terraflow-green">Desarrollo Estructural</p>
+                      <p className="opacity-75">Dentro de parámetros normales según bitácora visual</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modo 2: Plan de Acción Estratégico */}
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-2 h-2 bg-terraflow-orange rounded-full"></div>
+                  <h3 className="text-lg font-bold text-terraflow-dark">
+                    Modo 2: Plan de Acción Estratégico (24h)
+                  </h3>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-4 text-sm text-terraflow-dark space-y-4">
+                  <div>
+                    <p className="text-xs uppercase font-bold text-terraflow-orange mb-2">
+                      Estado Operativo
+                    </p>
+                    <div className={`inline-block px-4 py-2 rounded-lg font-bold text-white ${
+                      stats.lastHumedadSuelo < 60 ? "bg-red-500" : "bg-terraflow-green"
+                    }`}>
+                      {stats.lastHumedadSuelo < 60 ? "⚠️ URGENTE" : "✓ ESPERAR"}
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-xs uppercase font-bold text-terraflow-dark mb-2">
+                      Dosificación de Riego
+                    </p>
+                    <div className="bg-white p-3 rounded border-l-4 border-terraflow-orange">
+                      <p className="font-semibold text-terraflow-orange">
+                        {stats.lastHumedadSuelo < 65 ? "45-50 ml Correctivo" : "45-50 ml Preventivo"}
+                      </p>
+                      <p className="text-xs opacity-75 mt-1">
+                        Límites operativos: 45-50 ml para evitar hipoxia
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-white p-3 rounded border-l-2 border-terraflow-green text-xs">
+                      <p className="font-semibold text-terraflow-green mb-1">Microclima</p>
+                      <p className="opacity-75">Aislamiento térmico activo</p>
+                    </div>
+                    <div className="bg-white p-3 rounded border-l-2 border-terraflow-orange text-xs">
+                      <p className="font-semibold text-terraflow-orange mb-1">Fenología</p>
+                      <p className="opacity-75">Evaluar uso de tutores</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Info Section */}
-            <div className="mt-8 bg-white rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
+            {/* Data Summary */}
+            <div className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
               <h3 className="text-xs font-semibold text-terraflow-dark mb-4 uppercase opacity-70">
                 Datos en tiempo real
               </h3>
